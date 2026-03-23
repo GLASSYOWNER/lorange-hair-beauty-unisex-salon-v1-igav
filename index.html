@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<!-- V1 Simple Minimal | GitHub→Vercel | AI Website Factory -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorange Hair & Beauty Unisex Salon | Kanpur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF8C00;
+            --accent: #FFAC42;
+            --bg: #ffffff;
+            --surface: #f9fafb;
+            --text: #111827;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --max-width: 1200px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 100px 24px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--surface);
+            border-color: var(--text);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            padding-bottom: 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 30px;
+            border-top: 1px solid var(--border);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .stat-item h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services */
+        .section-tag {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+
+        /* About */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .about-counters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .counter-box h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .rating {
+            color: #fbbf24;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .client-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: var(--text);
+            color: white;
+            padding: 80px 24px;
+            border-radius: 24px;
+            text-align: center;
+            margin: 100px 24px;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+        }
+
+        .cta-banner p {
+            color: #9ca3af;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            padding: 32px;
+            background: var(--surface);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">Lorange</a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="https://wa.me/917236016666" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">BOOK NOW</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content reveal">
+                <span class="section-tag">Premium Unisex Salon</span>
+                <h1>Redefining Beauty in Kanpur.</h1>
+                <p>Experience world-class hair styling, skin treatments, and bridal grooming at Lorange — where art meets elegance.</p>
+                <div class="hero-ctas">
+                    <a href="https://wa.me/917236016666" target="_blank" class="btn btn-primary">Book via WhatsApp</a>
+                    <a href="tel:+917236016666" class="btn btn-outline">Call Salon</a>
+                </div>
+            </div>
+            <div class="hero-stats reveal" style="transition-delay: 0.2s;">
+                <div class="stat-item">
+                    <h4 data-count="4.8">0</h4>
+                    <p>Rating</p>
+                </div>
+                <div class="stat-item">
+                    <h4 data-count="496">0</h4>
+                    <p>Reviews</p>
+                </div>
+                <div class="stat-item">
+                    <h4 data-count="100">0</h4>
+                    <p>Hygiene %</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <span class="section-tag reveal">Our Expertise</span>
+            <h2 class="section-title reveal">Crafted for Excellence</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <h3>Hair Design</h3>
+                    <p>From precision cuts to creative styling, our experts craft looks that suit your personality.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Skin Therapy</h3>
+                    <p>Advanced facials and skin treatments designed to rejuvenate and glow.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Bridal & Groom</h3>
+                    <p>Specialized makeup and grooming packages for your most memorable day.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Global Coloring</h3>
+                    <p>Premium ammonia-free colors and Balayage techniques by certified artists.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Body Wellness</h3>
+                    <p>Relaxing spa therapies and massages to de-stress your mind and body.</p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Men's Grooming</h3>
+                    <p>Dedicated grooming services including beard styling and charcoal facials.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" style="background: var(--surface); max-width: 100%;">
+            <div style="max-width: var(--max-width); margin: 0 auto;" class="about-wrap">
+                <div class="about-content reveal">
+                    <span class="section-tag" style="text-align: left;">Who We Are</span>
+                    <h2>A Decade of Aesthetic Mastery.</h2>
+                    <p>Lorange Hair & Beauty Unisex Salon is Kanpur's premier destination for luxury grooming. We pride ourselves on using top-tier products and maintaining clinical hygiene standards.</p>
+                    <div class="about-counters">
+                        <div class="counter-box">
+                            <h3 data-count="4.8">0</h3>
+                            <p>Star Rating</p>
+                        </div>
+                        <div class="counter-box">
+                            <h3 data-count="496">0</h3>
+                            <p>Verified Reviews</p>
+                        </div>
+                        <div class="counter-box">
+                            <h3 data-count="100">0</h3>
+                            <p>Hygiene Focus</p>
+                        </div>
+                        <div class="counter-box">
+                            <h3 data-count="15">0</h3>
+                            <p>Style Experts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1400&q=85" alt="Salon Interior" style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <span class="section-tag reveal">Kind Words</span>
+            <h2 class="section-title reveal">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="rating">★★★★★</div>
+                    <p>"The best salon in Lal Bangla. Their attention to detail and hygiene is unmatched. Highly recommend for hair coloring."</p>
+                    <span class="client-name">— Priya Sharma</span>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="rating">★★★★★</div>
+                    <p>"Professional staff and premium feel. Got my bridal makeup done here and I couldn't have been happier."</p>
+                    <span class="client-name">— Anjali Gupta</span>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="rating">★★★★★</div>
+                    <p>"Great experience every time. The staff understands exactly what style you want. A must-visit in Kanpur."</p>
+                    <span class="client-name">— Rahul Verma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <span class="section-tag reveal">Visual Journey</span>
+            <h2 class="section-title reveal">The Lorange Experience</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=85" alt="Salon Work"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.1s;"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85" alt="Service"></div>
+                <div class="gallery-item reveal" style="transition-delay: 0.2s;"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=85" alt="Styling"></div>
+            </div>
+        </section>
+
+        <div class="cta-banner reveal">
+            <h2>Ready for a Transformation?</h2>
+            <p>Join over 5,000+ happy clients in Kanpur. Book your appointment today.</p>
+            <a href="https://wa.me/917236016666" target="_blank" class="btn btn-primary" style="background: white; color: var(--text);">Connect on WhatsApp</a>
+        </div>
+
+        <section id="contact">
+            <span class="section-tag reveal">Get In Touch</span>
+            <h2 class="section-title reveal">Visit Our Studio</h2>
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <h3>Call Us</h3>
+                    <a href="tel:+917236016666">+91 72360 16666</a>
+                </div>
+                <div class="contact-card reveal">
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/917236016666" target="_blank">Chat with us</a>
+                </div>
+                <div class="contact-card reveal">
+                    <h3>Location</h3>
+                    <p style="font-size: 0.9rem;">51- C Chandra Nagar, Pokharpur, Kanpur</p>
+                </div>
+            </div>
+            <div class="map-container reveal">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.942724495147!2d80.384666315035!3d26.436577983335343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c417647225679%3A0xe7a5c71d6437d7a1!2sLorange%20Hair%20%26%20Beauty%20Unisex%20Salon!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">LORANGE</span>
+        <p style="max-width: 500px; margin: 0 auto 32px; font-size: 0.9rem;">51- C Chandra Nagar Near KDA Chauraha, adjacent Kingston kids school, Pokharpur, Lal Bangla, J K Puri, Kanpur, Uttar Pradesh 208007</p>
+        <div class="nav-links" style="display: flex; justify-content: center; margin-bottom: 32px;">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2023 Lorange Hair & Beauty Unisex Salon. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for Reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Counter Animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const countTo = parseFloat(target.getAttribute('data-count'));
+                    let current = 0;
+                    const duration = 2000;
+                    const increment = countTo / (duration / 16);
+
+                    const updateCount = () => {
+                        current += increment;
+                        if (current < countTo) {
+                            target.innerText = countTo % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            target.innerText = countTo % 1 !== 0 ? countTo : countTo + (countTo === 496 ? "+" : "");
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
